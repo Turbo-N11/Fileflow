@@ -189,16 +189,31 @@ The workspace can also be entered manually.
 
 <table>
   <tr>
-    <td><img src="assets/dashboard.png" alt="FileFlow dashboard" width="100%"></td>
-    <td><img src="assets/preview.png" alt="FileFlow review changes screen" width="100%"></td>
-    <td><img src="assets/rules.png" alt="FileFlow rules screen" width="100%"></td>
+    <td width="50%">
+      <img src="assets/dashboard.png" alt="FileFlow dashboard" width="100%">
+    </td>
+    <td width="50%">
+      <img src="assets/preview.png" alt="FileFlow review changes screen" width="100%">
+    </td>
   </tr>
   <tr>
-    <td><img src="assets/dashboard1.png" alt="FileFlow dashboard alternate view" width="100%"></td>
-    <td><img src="assets/preview1.png" alt="FileFlow review changes alternate view" width="100%"></td>
-    <td><img src="assets/rules1.png" alt="FileFlow rules alternate view" width="100%"></td>
+    <td width="50%">
+      <img src="assets/rules.png" alt="FileFlow rules screen" width="100%">
+    </td>
+    <td width="50%">
+      <img src="assets/dashboard1.png" alt="FileFlow dashboard alternate view" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="assets/preview1.png" alt="FileFlow review changes alternate view" width="100%">
+    </td>
+    <td width="50%">
+      <img src="assets/rules1.png" alt="FileFlow rules alternate view" width="100%">
+    </td>
   </tr>
 </table>
+
 ## Quick Start
 
 ### 1. Clone the repository
