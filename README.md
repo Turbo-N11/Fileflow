@@ -1,44 +1,34 @@
-```{=html}
 <p align="center">
-```
-`<strong>`{=html}FILEFLOW`</strong>`{=html}
-```{=html}
+  <img src="assets/logo.png" alt="FileFlow Logo" width="200">
 </p>
-```
-```{=html}
+
 <p align="center">
-```
-`<strong>`{=html}Smart, local-first file organization with rules,
-previews, duplicate detection, and undo.`</strong>`{=html}
-```{=html}
+  <strong>FileFlow</strong>
 </p>
-```
-```{=html}
+
 <p align="center">
-```
-`<em>`{=html}Scan. Review. Organize. Safely.`</em>`{=html}
-```{=html}
+  <strong>Smart, local-first file organization with rules, previews, duplicate detection, and undo.</strong>
 </p>
-```
-```{=html}
+
 <p align="center">
-```
-`<a href="#features">`{=html}Features`</a>`{=html} •
-`<a href="#quick-start">`{=html}Quick Start`</a>`{=html} •
-`<a href="#how-it-works">`{=html}How It Works`</a>`{=html} •
-`<a href="#rules">`{=html}Rules`</a>`{=html} •
-`<a href="#architecture">`{=html}Architecture`</a>`{=html} •
-`<a href="#development">`{=html}Development`</a>`{=html}
-```{=html}
+  <em>Scan. Review. Organize. Safely.</em>
 </p>
-```
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#quick-start">Quick Start</a> •
+  <a href="#how-it-works">How It Works</a> •
+  <a href="#rules">Rules</a> •
+  <a href="#architecture">Architecture</a> •
+  <a href="#development">Development</a>
+</p>
 
 # FileFlow
 
 > Smart, local-first file organization with rules, previews, duplicate detection, and undo.
 
 <p align="center">
-  <img src="assets/logo.png" alt="FileFlow Dashboard" width="900">
+  <img src="assets/dashboard.png" alt="FileFlow Dashboard" width="900">
 </p>
 
 <p align="center">
@@ -55,24 +45,23 @@ you choose exactly what should be organized.
 **Turn a messy folder into an organized workspace while keeping the user
 in control.**
 
-
 ## Features
 
 ### Smart file organization
 
--   Scan a selected local folder.
--   Organize files by extension.
--   Organize files by filename keywords.
--   Use rule priorities when multiple rules match.
--   Create destination folders automatically.
--   Support nested destinations.
--   Keep unmatched files visible.
+- Scan a selected local folder.
+- Organize files by extension.
+- Organize files by filename keywords.
+- Use rule priorities when multiple rules match.
+- Create destination folders automatically.
+- Support nested destinations.
+- Keep unmatched files visible.
 
 ### Review before organizing
 
 FileFlow uses a preview-first workflow:
 
-``` text
+```text
 Select workspace
       ↓
 Scan files
@@ -98,7 +87,7 @@ extensions.
 
 For example:
 
-``` text
+```text
 assignment-01.pdf
 assignment_python.docx
 DBMS-practical-03.pdf
@@ -107,13 +96,13 @@ homework-week-4.txt
 
 can be routed to:
 
-``` text
+```text
 Assignments/
 ```
 
 Likewise:
 
-``` text
+```text
 project-report.pdf
 final-analysis.docx
 monthly-summary.xlsx
@@ -121,7 +110,7 @@ monthly-summary.xlsx
 
 can be routed to:
 
-``` text
+```text
 Reports/
 ```
 
@@ -129,7 +118,7 @@ Reports/
 
 Rules can have explicit priorities.
 
-``` text
+```text
 Priority 1   → Assignment Files → Assignments/
 Priority 2   → Report Files     → Reports/
 Priority 3   → Project Files    → Projects/
@@ -143,9 +132,9 @@ Lower priority numbers are evaluated first.
 When a destination already contains a file with the same name, FileFlow
 supports:
 
--   Rename
--   Skip
--   Replace
+- Rename
+- Skip
+- Replace
 
 Conflicts are shown during preview.
 
@@ -174,7 +163,7 @@ than ordinary workspaces.
 
 On supported Linux desktops, FileFlow can use:
 
-``` text
+```text
 kdialog
 zenity
 yad
@@ -184,23 +173,23 @@ The workspace can also be entered manually.
 
 ### UI
 
--   Cream/off-white visual system.
--   Warm brown accents.
--   Professional dark mode.
--   Persistent theme preference.
--   Sidebar navigation.
--   Dashboard overview.
--   Review Changes workspace.
--   Search and filters.
--   File organization statistics.
--   Active-rules panel.
--   Responsive layout.
+- Cream/off-white visual system.
+- Warm brown accents.
+- Professional dark mode.
+- Persistent theme preference.
+- Sidebar navigation.
+- Dashboard overview.
+- Review Changes workspace.
+- Search and filters.
+- File organization statistics.
+- Active-rules panel.
+- Responsive layout.
 
 ## Screenshots
 
 Add repository screenshots such as:
 
-``` html
+```html
 <p align="center">
   <img src="assets/dashboard.png" alt="FileFlow dashboard" width="100%">
 </p>
@@ -224,7 +213,6 @@ Add repository screenshots such as:
 <p align="center">
   <img src="assets/rules1.png" alt="FileFlow rules screen" width="100%">
 </p>
-
 ```
 
 ## Quick Start
@@ -233,7 +221,7 @@ Add repository screenshots such as:
 
 Replace the repository URL with your GitHub repository:
 
-``` bash
+```bash
 git clone <your-repository-url>
 cd FileFlow
 ```
@@ -242,21 +230,21 @@ cd FileFlow
 
 Linux/macOS:
 
-``` bash
+```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
 Windows PowerShell:
 
-``` powershell
+```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
 ### 3. Install dependencies
 
-``` bash
+```bash
 pip install -r requirements.txt
 ```
 
@@ -264,7 +252,7 @@ pip install -r requirements.txt
 
 For KDE Plasma:
 
-``` bash
+```bash
 sudo pacman -S kdialog
 ```
 
@@ -272,13 +260,13 @@ Alternatively, install `zenity` or `yad`.
 
 ### 5. Start FileFlow
 
-``` bash
+```bash
 python app.py
 ```
 
 Open:
 
-``` text
+```text
 http://127.0.0.1:5000
 ```
 
@@ -290,16 +278,16 @@ Select the folder containing the files you want to organize.
 
 You can:
 
--   enter the path manually
--   click Browse
--   click the workspace area to open the native folder picker
+- enter the path manually
+- click Browse
+- click the workspace area to open the native folder picker
 
 ### 2. Scan
 
 FileFlow scans direct files in the selected workspace and ignores
 incomplete temporary files such as:
 
-``` text
+```text
 .part
 .crdownload
 .tmp
@@ -309,14 +297,14 @@ incomplete temporary files such as:
 
 Each file is evaluated against configured rules using:
 
--   filename keywords
--   extensions
--   priority
--   destination
+- filename keywords
+- extensions
+- priority
+- destination
 
 Example:
 
-``` text
+```text
 assignment_05.pdf
         ↓
 filename contains "assignment"
@@ -330,13 +318,13 @@ Assignments/
 
 The proposed changes can show:
 
--   file name
--   type
--   size
--   destination
--   conflict status
--   duplicate status
--   organization status
+- file name
+- type
+- size
+- destination
+- conflict status
+- duplicate status
+- organization status
 
 You can search, filter, select, clear, or remove individual files.
 
@@ -354,46 +342,25 @@ supported reversible moves.
 
 Default smart rules include:
 
-  ---------------------------------------------------------------------------
-  Rule             Filename keywords   Destination                   Priority
-  ---------------- ------------------- ---------------- ---------------------
-  Assignment Files assignment, assgmt, `Assignments/`                       1
-                   task, homework,                      
-                   practical, lab                       
-
-  Report Files     report, summary,    `Reports/`                           2
-                   analysis                             
-
-  Project Files    project, proj       `Projects/`                          3
-
-  Documents        common document     `Documents/`                       100
-                   extensions                           
-
-  Images           common image        `Images/`                          100
-                   extensions                           
-
-  Videos           common video        `Videos/`                          100
-                   extensions                           
-
-  Audio            common audio        `Audio/`                           100
-                   extensions                           
-
-  Archives         common archive      `Archives/`                        100
-                   extensions                           
-
-  Code             programming         `Code/`                            100
-                   extensions                           
-
-  Installers       installer/package   `Installers/`                      100
-                   extensions                           
-  ---------------------------------------------------------------------------
+| Rule | Filename keywords | Destination | Priority |
+|---|---|---|---|
+| Assignment Files | assignment, assgmt, task, homework, practical, lab | `Assignments/` | 1 |
+| Report Files | report, summary, analysis | `Reports/` | 2 |
+| Project Files | project, proj | `Projects/` | 3 |
+| Documents | common document extensions | `Documents/` | 100 |
+| Images | common image extensions | `Images/` | 100 |
+| Videos | common video extensions | `Videos/` | 100 |
+| Audio | common audio extensions | `Audio/` | 100 |
+| Archives | common archive extensions | `Archives/` | 100 |
+| Code | programming extensions | `Code/` | 100 |
+| Installers | installer/package extensions | `Installers/` | 100 |
 
 Specific filename rules can therefore take precedence over broad
 extension rules.
 
 ### Example
 
-``` text
+```text
 Assignment Files
 ────────────────
 Filename contains:
@@ -412,7 +379,7 @@ Priority:
 
 A broad PDF rule can remain at priority 100:
 
-``` text
+```text
 Documents
 ────────────────
 Extensions:
@@ -436,7 +403,7 @@ An assignment PDF will therefore go to `Assignments/` rather than
 
 Keep both files by generating a new destination name:
 
-``` text
+```text
 report.pdf
 report (1).pdf
 ```
@@ -457,7 +424,7 @@ file.
 FileFlow uses SHA-256 content hashing when duplicate detection is
 performed:
 
-``` text
+```text
 file A → SHA-256 → hash X
 file B → SHA-256 → hash X
 
@@ -473,20 +440,20 @@ FileFlow is designed around a local-first, review-first workflow.
 
 Important safety behavior includes:
 
--   Preview before execution.
--   Explicit file selection.
--   Configurable conflict handling.
--   Duplicate detection.
--   Protected paths.
--   Permission/error handling.
--   Activity history.
--   Undo for supported operations.
--   No cloud upload required for normal organization.
--   No AI dependency for core organization.
+- Preview before execution.
+- Explicit file selection.
+- Configurable conflict handling.
+- Duplicate detection.
+- Protected paths.
+- Permission/error handling.
+- Activity history.
+- Undo for supported operations.
+- No cloud upload required for normal organization.
+- No AI dependency for core organization.
 
 ## Architecture
 
-``` text
+```text
 ┌─────────────────────────────────────────────────────┐
 │                     Browser                         │
 │                                                     │
@@ -520,7 +487,7 @@ Important safety behavior includes:
 
 ## Project Structure
 
-``` text
+```text
 FileFlow/
 ├── app.py
 ├── organizer.py
@@ -548,11 +515,11 @@ Adjust the structure if your repository contains additional modules.
 
 ## Requirements
 
--   Python 3.10+
--   Flask
--   Modern web browser
--   Local filesystem workspace
--   SQLite support from Python/application runtime
+- Python 3.10+
+- Flask
+- Modern web browser
+- Local filesystem workspace
+- SQLite support from Python/application runtime
 
 For native Linux folder selection, one of `kdialog`, `zenity`, or `yad`
 is recommended.
@@ -563,7 +530,7 @@ Core file organization does not require an external AI provider.
 
 Typical local configuration includes:
 
-``` text
+```text
 Workspace folder
 Theme preference
 Organization rules
@@ -575,7 +542,7 @@ Keep generated runtime data out of version control.
 
 Example `.gitignore` entries:
 
-``` text
+```text
 .venv/
 __pycache__/
 *.pyc
@@ -586,7 +553,7 @@ instance/
 
 ## Development
 
-``` bash
+```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -595,7 +562,7 @@ python app.py
 
 For frontend changes, a hard refresh can clear cached assets:
 
-``` text
+```text
 Ctrl + Shift + R
 ```
 
@@ -603,74 +570,74 @@ Restart Flask after backend changes.
 
 ## Testing Checklist
 
--   [ ] FileFlow starts successfully.
--   [ ] Workspace can be entered manually.
--   [ ] Browse opens the native folder picker when available.
--   [ ] Workspace click opens the folder picker.
--   [ ] Folder scanning works.
--   [ ] Temporary files are ignored.
--   [ ] Filename rules work.
--   [ ] Extension rules work.
--   [ ] Rule priorities work.
--   [ ] Destination folders are created.
--   [ ] Preview displays correctly.
--   [ ] Individual files can be removed from preview.
--   [ ] Search works.
--   [ ] Type filtering works.
--   [ ] Status filtering works.
--   [ ] Select all works.
--   [ ] Clear works.
--   [ ] Rename works.
--   [ ] Skip works.
--   [ ] Replace works.
--   [ ] Duplicate detection works.
--   [ ] Permission errors are handled.
--   [ ] Protected paths are handled safely.
--   [ ] Selected files are organized correctly.
--   [ ] Activity history records operations.
--   [ ] Undo works for supported operations.
--   [ ] Theme switching works on the first interaction.
--   [ ] Theme preference persists.
--   [ ] Dark mode remains readable.
--   [ ] Empty and error states are understandable.
+- [ ] FileFlow starts successfully.
+- [ ] Workspace can be entered manually.
+- [ ] Browse opens the native folder picker when available.
+- [ ] Workspace click opens the folder picker.
+- [ ] Folder scanning works.
+- [ ] Temporary files are ignored.
+- [ ] Filename rules work.
+- [ ] Extension rules work.
+- [ ] Rule priorities work.
+- [ ] Destination folders are created.
+- [ ] Preview displays correctly.
+- [ ] Individual files can be removed from preview.
+- [ ] Search works.
+- [ ] Type filtering works.
+- [ ] Status filtering works.
+- [ ] Select all works.
+- [ ] Clear works.
+- [ ] Rename works.
+- [ ] Skip works.
+- [ ] Replace works.
+- [ ] Duplicate detection works.
+- [ ] Permission errors are handled.
+- [ ] Protected paths are handled safely.
+- [ ] Selected files are organized correctly.
+- [ ] Activity history records operations.
+- [ ] Undo works for supported operations.
+- [ ] Theme switching works on the first interaction.
+- [ ] Theme preference persists.
+- [ ] Dark mode remains readable.
+- [ ] Empty and error states are understandable.
 
 ## Known Limitations
 
--   Browser drag-and-drop cannot directly expose arbitrary local
-    filesystem paths, so native folder selection is used for graphical
-    workspace selection.
--   Native folder selection depends on a supported desktop picker.
--   FileFlow is primarily designed for local filesystem organization.
--   Undo depends on the source and destination remaining accessible.
--   Replace can overwrite an existing destination file.
--   Flask's development server is intended for local development, not
-    production deployment.
+- Browser drag-and-drop cannot directly expose arbitrary local
+  filesystem paths, so native folder selection is used for graphical
+  workspace selection.
+- Native folder selection depends on a supported desktop picker.
+- FileFlow is primarily designed for local filesystem organization.
+- Undo depends on the source and destination remaining accessible.
+- Replace can overwrite an existing destination file.
+- Flask's development server is intended for local development, not
+  production deployment.
 
 ## Roadmap
 
 Potential future improvements:
 
--   Advanced rule builder.
--   AND/OR rule conditions.
--   Date-based organization.
--   File-size rules.
--   Regular-expression filename rules.
--   Exclusion rule builder.
--   Unknown-file suggestions.
--   Scheduled organization.
--   Watch folders.
--   Dry-run reports.
--   Advanced duplicate management.
--   File previews.
--   Batch undo sessions.
--   Rule import/export.
--   Desktop notifications.
--   Native desktop packaging.
--   Optional local AI-assisted classification.
+- Advanced rule builder.
+- AND/OR rule conditions.
+- Date-based organization.
+- File-size rules.
+- Regular-expression filename rules.
+- Exclusion rule builder.
+- Unknown-file suggestions.
+- Scheduled organization.
+- Watch folders.
+- Dry-run reports.
+- Advanced duplicate management.
+- File previews.
+- Batch undo sessions.
+- Rule import/export.
+- Desktop notifications.
+- Native desktop packaging.
+- Optional local AI-assisted classification.
 
 ## Contributing
 
-``` bash
+```bash
 git checkout -b feature/my-change
 # make your changes
 git add .
@@ -680,11 +647,11 @@ git push origin feature/my-change
 
 When opening a pull request, describe:
 
--   What changed.
--   Why it changed.
--   How it was tested.
--   Limitations.
--   Follow-up work.
+- What changed.
+- Why it changed.
+- How it was tested.
+- Limitations.
+- Follow-up work.
 
 ## Security Notes
 
@@ -692,15 +659,15 @@ FileFlow operates on real files, so filesystem safety matters.
 
 Before exposing an instance beyond your local machine:
 
--   Validate user-controlled paths.
--   Prevent path traversal.
--   Restrict filesystem access to intended workspaces.
--   Resolve destinations safely.
--   Handle permissions explicitly.
--   Avoid arbitrary command execution.
--   Use a production WSGI server.
--   Add authentication for multi-user deployments.
--   Never commit secrets.
+- Validate user-controlled paths.
+- Prevent path traversal.
+- Restrict filesystem access to intended workspaces.
+- Resolve destinations safely.
+- Handle permissions explicitly.
+- Avoid arbitrary command execution.
+- Use a production WSGI server.
+- Add authentication for multi-user deployments.
+- Never commit secrets.
 
 ## License
 
@@ -713,21 +680,17 @@ MIT is a simple option if it matches your intended distribution model.
 
 Built with:
 
--   Python
--   Flask
--   SQLite
--   HTML
--   CSS
--   JavaScript
--   Native Linux folder-picker utilities
+- Python
+- Flask
+- SQLite
+- HTML
+- CSS
+- JavaScript
+- Native Linux folder-picker utilities
 
-------------------------------------------------------------------------
+---
 
-```{=html}
 <p align="center">
-```
-`<strong>`{=html}FileFlow`</strong>`{=html}`<br>`{=html}
-`<sub>`{=html}Scan. Review. Organize. Safely.`</sub>`{=html}
-```{=html}
+  <strong>FileFlow</strong><br>
+  <sub>Scan. Review. Organize. Safely.</sub>
 </p>
-```
