@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" alt="FileFlow Logo" width="500">
+  <img src="assets/logo.png" alt="FileFlow Logo" width="520">
 </p>
 
 <p align="center">
