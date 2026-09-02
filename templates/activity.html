@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% block title %}Activity · FileFlow{% endblock %}{% block content %}
+<section class="content-head"><div><h1>Activity</h1><p>Persistent organization history. Undo a batch without touching unrelated files.</p></div></section>
+<section class="panel activity-panel">{% for b in batches %}<div class="batch"><div><span class="batch-id">BATCH #{{b.id}}</span><b>{{b.created}}</b><small>{{b.moved}} moved · {{b.errors}} errors</small></div><form method="post" action="{{url_for('undo',batch_id=b.id)}}"><button class="button ghost">↶ Undo</button></form></div>{% else %}<div class="empty"><strong>No activity yet.</strong><span>Your completed organization batches will appear here.</span></div>{% endfor %}</section>
+{% endblock %}

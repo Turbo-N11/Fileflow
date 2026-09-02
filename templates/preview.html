@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Review changes · FileFlow{% endblock %}
+{% block content %}
+<section class="content-head preview-head">
+  <div><h1>Review changes</h1><p>{{ folder }}</p></div>
+  <div class="scan-status"><span>✓</span><div><b>Scan complete</b><small>{{ items|length }} files found</small></div></div>
+</section>
+<div class="stats-row">
+  <div><i>▧</i><strong id="totalCount">{{items|length}}</strong><small>Total Files</small></div>
+  <div><i>□</i><strong id="selectedCount">{{items|length}}</strong><small>To Organize</small></div>
+  <div><i>△</i><strong>{{items|selectattr('conflict')|list|length}}</strong><small>Conflicts</small></div>
+  <div><i>▱</i><strong>{{items|selectattr('duplicate')|list|length}}</strong><small>Duplicates</small></div>
+  <div><i>⊖</i><strong id="removedCount">0</strong><small>Removed</small></div>
+</div>
+<div class="workspace-grid">
+<main>
+<div class="notice">ⓘ <span>Review the files below. You can <b>deselect</b> or <b>remove</b> files you don't want to organize.</span></div>
+<form method="post" action="{{url_for('organize')}}" class="preview-form" id="previewForm">
+<section class="panel file-panel">
+  <div class="filterbar">
+    <input id="fileSearch" placeholder="⌕  Search files..." aria-label="Search files">
+    <select id="typeFilter"><option value="">All Types</option>{% for t in items|map(attribute='category')|unique|sort %}<option value="{{t}}">{{t}}</option>{% endfor %}</select>
+    <select id="statusFilter"><option value="">All Status</option><option value="new">New</option><option value="conflict">Conflict</option><option value="duplicate">Duplicate</option></select>
+    <button type="button" class="button ghost" onclick="focusSearch()">⚱ Filters</button>
+    <button type="button" class="button brown" onclick="toggleAll(true)">Select all</button>
+    <button type="button" class="button ghost" onclick="toggleAll(false)">Clear</button>
+  </div>
+  <div class="table-wrap">
+  <table class="preview-table"><thead><tr><th class="check-col"><input type="checkbox" id="masterCheck" checked onclick="toggleAll(this.checked)"></th><th>FILE</th><th>TYPE</th><th>SIZE</th><th>DESTINATION</th><th>STATUS</th><th>ACTIONS</th></tr></thead>
+  <tbody id="fileRows">
+  {% for x in items %}
+  <tr data-name="{{x.name|lower}}" data-type="{{x.category|lower}}" data-status="{{'duplicate' if x.duplicate else 'conflict' if x.conflict else 'new'}}">
+    <td class="check-col"><input type="checkbox" name="selected" value="{{x.source}}" checked onchange="updateSelection()"></td>
+    <td class="file-name"><span class="file-icon">▤</span><div><b>{{x.name}}</b><small>{{x.modified}}</small></div></td>
+    <td><span class="tag">{{x.category}}</span></td><td>{{'%.1f'|format(x.size/1024/1024)}} MB</td>
+    <td class="path" title="{{x.destination}}">{{x.destination}}</td>
+    <td>{% if x.duplicate %}<span class="pill duplicate">Duplicate</span>{% elif x.conflict %}<span class="pill conflict-pill">Conflict</span>{% else %}<span class="pill new">New</span>{% endif %}</td>
+    <td><button type="button" class="remove-file" title="Remove from organization" onclick="removeFile(this)">♲</button></td>
+  </tr>
+  {% else %}<tr><td colspan="7" class="empty"><strong>Nothing is ready to organize.</strong><span>No supported files were found, or your rules don't match them.</span><a href="{{url_for('rules')}}">Review rules →</a></td></tr>{% endfor %}
+  </tbody></table></div>
+</section>
+<div class="bottom-bar">
+  <span><b id="selectionLabel">{{items|length}} selected</b> of {{items|length}} files</span>
+  <label>Conflict policy: <select name="conflict_policy"><option value="rename" {% if config.conflict_policy=='rename' %}selected{% endif %}>Rename if exists</option><option value="skip" {% if config.conflict_policy=='skip' %}selected{% endif %}>Skip</option><option value="replace" {% if config.conflict_policy=='replace' %}selected{% endif %}>Replace</option></select></label>
+  <div><a class="button ghost" href="{{url_for('dashboard')}}">Cancel</a><button id="organizeButton" class="button brown" {% if not items %}disabled{% endif %}>Organize selected (<span id="organizeCount">{{items|length}}</span>)</button></div>
+</div>
+</form></main>
+<aside class="right-rail">
+<section class="rail-card"><div class="rail-title"><b>Active Rules</b><small>(by priority)</small><a href="{{url_for('rules')}}">Manage Rules</a></div>
+{% for name,r in rules.items()|sort(attribute='1.priority') %}{% if loop.index <= 5 %}<div class="active-rule"><span>{{r.priority}}</span><div><b>{{name}}</b><small>{% if r.filename_contains %}Filename contains: {{r.filename_contains|join(', ')}}{% elif r.extensions %}Based on file extensions{% endif %}</small><em>→ /{{r.destination or name}}</em></div></div>{% endif %}{% endfor %}
+</section>
+<section class="rail-card"><b>Rule Types Used</b><div class="rule-types"><div><strong>▧</strong><span>Extension</span><small>{{rules|length}} rules</small></div><div><strong>□</strong><span>Filename</span><small>{{rules.values()|selectattr('filename_contains')|list|length}} rules</small></div><div><strong>◫</strong><span>Priority</span><small>Active</small></div><div><strong>◷</strong><span>Destination</span><small>Folders</small></div></div></section>
+<section class="rail-card"><b>Quick Actions</b><a class="quick-row" href="{{url_for('rules')}}">▧ <span>Manage filename rules</span><i>→</i></a><a class="quick-row" href="{{url_for('activity')}}">◌ <span>View activity</span><i>→</i></a></section>
+</aside></div>
+{% endblock %}

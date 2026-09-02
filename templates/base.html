@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="{{config.theme if config is defined else 'system'}}">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}FileFlow{% endblock %}</title>
+<link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+  <a class="brand" href="{{url_for('dashboard')}}"><span class="brand-mark">▣</span><span><b>FileFlow</b><small>Organize. Simplify. Flow.</small></span></a>
+  <nav class="side-nav">
+    <a class="{{ 'active' if request.endpoint=='dashboard' else '' }}" href="{{url_for('dashboard')}}"><i>⌂</i>Dashboard</a>
+    <a class="{{ 'active' if request.endpoint=='preview' else '' }}" href="{{url_for('preview')}}"><i>⌕</i>Scan &amp; Preview</a>
+    <a class="{{ 'active' if request.endpoint=='rules' else '' }}" href="{{url_for('rules')}}"><i>⌘</i>Rules</a>
+    <a href="{{url_for('dashboard')}}#categories"><i>□</i>Categories</a>
+    <a href="{{url_for('rules')}}#exclusions"><i>⊘</i>Exclusions</a>
+    <a href="{{url_for('dashboard')}}#unknown"><i>◷</i>Unknown Files <span class="nav-badge">{{ (items|selectattr('category','equalto',None)|list|length) if items is defined else 0 }}</span></a>
+    <a class="{{ 'active' if request.endpoint=='activity' else '' }}" href="{{url_for('activity')}}"><i>◌</i>Activity</a>
+  </nav>
+  <div class="sidebar-spacer"></div>
+  <div class="side-card">
+    <b>Current Folder</b>
+    <div class="folder-chip">▱ <span title="{{config.folder if config is defined else ''}}">{{config.folder if config is defined and config.folder else 'Not connected'}}</span></div>
+    {% if config is defined and config.folder %}<small>{{items|length if items is defined else 0}} files found</small>{% endif %}
+    <a class="side-action" href="{{url_for('dashboard')}}">⌑ Change Folder</a>
+  </div>
+  <div class="side-card storage-card">
+    <b>Storage Organized</b><small>This session</small><strong>{{'%.1f'|format((total_size or 0)/1024/1024) if total_size is defined else '0.0'}} MB</strong>
+    <div class="mini-chart"><span></span><span></span><span></span><span></span><span></span></div>
+    <small>All time</small><strong>2.34 GB</strong>
+  </div>
+  <div class="local-note"><span>●</span><div><b>Local Only</b><small>Your files stay on this machine</small></div></div>
+</aside>
+<main class="main-content">
+<header class="topbar">
+  <div class="mobile-brand"><a class="brand" href="{{url_for('dashboard')}}"><span class="brand-mark">▣</span><b>FileFlow</b></a></div>
+  <div class="top-actions">
+    {% if request.endpoint=='preview' %}<a class="button ghost" href="{{url_for('preview')}}">↻ Rescan</a>{% endif %}
+    <button class="theme-switch" type="button" title="Cycle theme" aria-label="Cycle theme"><span class="theme-icon">☼</span><b>System</b><span>⌄</span></button>
+    <button class="mode-button" type="button" title="Switch to dark mode" aria-label="Switch to dark mode">☾</button>
+  </div>
+</header>
+{% with messages=get_flashed_messages(with_categories=true) %}{% for category,msg in messages %}<div class="toast {{category}}"><span>●</span>{{msg}}<button onclick="this.parentElement.remove()">×</button></div>{% endfor %}{% endwith %}
+{% block content %}{% endblock %}
+<footer>FileFlow v2.4 · <span>● Local Only</span> · No AI · No cloud · Your files stay on this machine</footer>
+</main></div>
+<script src="{{url_for('static',filename='app.js')}}"></script>
+</body></html>
