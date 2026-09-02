@@ -216,6 +216,8 @@ The workspace can also be entered manually.
 
 ## Quick Start
 
+> **Windows users:** install Python 3.10+ from [python.org](https://www.python.org/downloads/windows/) and make sure **"Add python.exe to PATH"** is checked during setup. [Git for Windows](https://git-scm.com/download/win) (which includes Git Bash) is also recommended for the `git clone` step below.
+
 ### 1. Clone the repository
 
 Replace the repository URL with your GitHub repository:
@@ -234,12 +236,25 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-Windows PowerShell:
+Windows (PowerShell):
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
+
+Windows (Command Prompt):
+
+```cmd
+python -m venv .venv
+.venv\Scripts\activate.bat
+```
+
+> **Note (Windows PowerShell):** if activation fails with a message about running scripts being disabled, open PowerShell as Administrator once and run:
+> ```powershell
+> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+> ```
+> Then retry `.venv\Scripts\Activate.ps1` in a normal (non-admin) PowerShell window.
 
 ### 3. Install dependencies
 
@@ -247,7 +262,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### 4. Optional: install a native folder picker on Arch Linux
+### 4. Optional: install a native folder picker (Linux)
 
 For KDE Plasma:
 
@@ -257,7 +272,11 @@ sudo pacman -S kdialog
 
 Alternatively, install `zenity` or `yad`.
 
-### 5. Start FileFlow
+### 5. Folder selection on Windows
+
+FileFlow's native folder-picker integration (`kdialog` / `zenity` / `yad`) targets Linux desktop environments, so no equivalent package is needed on Windows. Enter the workspace path manually — the quickest way is to open the target folder in File Explorer, click the address bar, copy the path (`Ctrl+C`), and paste it into FileFlow.
+
+### 6. Start FileFlow
 
 ```bash
 python app.py
@@ -521,7 +540,8 @@ Adjust the structure if your repository contains additional modules.
 - SQLite support from Python/application runtime
 
 For native Linux folder selection, one of `kdialog`, `zenity`, or `yad`
-is recommended.
+is recommended. On Windows and macOS there is no equivalent native
+picker yet, so the workspace path is entered manually.
 
 Core file organization does not require an external AI provider.
 
