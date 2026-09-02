@@ -187,32 +187,30 @@ The workspace can also be entered manually.
 
 ## Screenshots
 
-Add repository screenshots such as:
-
-<p align="center">
-  <img src="assets/dashboard.png" alt="FileFlow dashboard" width="100%">
-</p>
-
-<p align="center">
-  <img src="assets/preview.png" alt="FileFlow review changes screen" width="100%">
-</p>
-
-<p align="center">
-  <img src="assets/rules.png" alt="FileFlow rules screen" width="100%">
-</p>
-
-<p align="center">
-  <img src="assets/dashboard1.png" alt="FileFlow dashboard" width="100%">
-</p>
-
-<p align="center">
-  <img src="assets/preview1.png" alt="FileFlow review changes screen" width="100%">
-</p>
-
-<p align="center">
-  <img src="assets/rules1.png" alt="FileFlow rules screen" width="100%">
-</p>
-
+<table>
+  <tr>
+    <td width="33%">
+      <img src="assets/dashboard.png" alt="FileFlow dashboard" width="100%">
+    </td>
+    <td width="33%">
+      <img src="assets/preview.png" alt="FileFlow review changes screen" width="100%">
+    </td>
+    <td width="33%">
+      <img src="assets/rules.png" alt="FileFlow rules screen" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td width="33%">
+      <img src="assets/dashboard1.png" alt="FileFlow dashboard alternate view" width="100%">
+    </td>
+    <td width="33%">
+      <img src="assets/preview1.png" alt="FileFlow review changes alternate view" width="100%">
+    </td>
+    <td width="33%">
+      <img src="assets/rules1.png" alt="FileFlow rules alternate view" width="100%">
+    </td>
+  </tr>
+</table>
 
 ## Quick Start
 
